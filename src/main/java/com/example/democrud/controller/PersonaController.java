@@ -2,7 +2,6 @@ package com.example.democrud.controller;
 
 import com.example.democrud.model.Persona;
 import com.example.democrud.service.PersonaService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PersonaController {
 
-    @Autowired
     private PersonaService personaService;
+
+    PersonaController(PersonaService personaService){
+        this.personaService = personaService;
+    }
 
     @RequestMapping("/")
     public String index(Model model){
